@@ -9,10 +9,17 @@ app.use(cors());
 const server = http.createServer(app);
 
 const io = new Server(server, {
+  // cors: {
+  //   // `origin: "http://localhost:3000",
+  //   methods: ["GET", "POST"],
+  // },
   cors: {
-    // `origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
-  },
+    transports: ["websocket", "polling"],
+    credentials: true,
+   },
+    allowEIO3: true,
 });
 
 io.on("connection", (socket) => {

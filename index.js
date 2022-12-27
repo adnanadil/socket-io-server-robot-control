@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
 
   socket.on("send_this", (data) => {
     // socket.to(data.room).emit("receive_message", data);
-    socket.emit("receive_message", data);
+    socket.broadcast.emit("receive_message", {message: data.message, room: "16"});
     // io.broadcast.emit("receive_message", data);
   });
 

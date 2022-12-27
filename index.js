@@ -41,6 +41,19 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("receive_message", data);
     // io.broadcast.emit("receive_message", data);
   });
+
+
+  console.log('Connected');
+  console.log(socket.id);
+  console.log("JWT token test: ",socket.handshake.headers)
+
+  socket.on('disconnect', () => {
+
+    console.log('Disconnected');
+
+  })
+
+
 });
 
 server.listen(process.env.PORT || 3001, () => {

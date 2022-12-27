@@ -58,6 +58,7 @@ io.on("connection", (socket) => {
 
 server.listen(process.env.PORT || 3001, () => {
   console.log("SERVER IS RUNNING");
+  console.log(`This is the port: ${process.env.PORT}`);
 });
 
 
